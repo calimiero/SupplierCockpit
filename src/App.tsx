@@ -10,8 +10,8 @@ import { CompanyList } from './components/CompanyList';
 function PrivateRoute({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
   const [authenticated, setAuthenticated] = useState(false);
-  const navigate = useNavigate();
-
+  // navigate değişkeni burada kullanılmıyor, o yüzden kaldırıldı
+  
   useEffect(() => {
     checkUser();
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
