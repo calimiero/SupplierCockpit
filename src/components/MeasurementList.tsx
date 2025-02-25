@@ -1,20 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
 import { format } from 'date-fns';
+
+interface QualityParameter {
+  name: string;
+  unit: string;
+  min_value: number | null;
+  max_value: number | null;
+}
+
+interface Supplier {
+  name: string;
+}
 
 interface Measurement {
   id: string;
   value: number;
   measured_at: string;
-  quality_parameters: {
-    name: string;
-    unit: string;
-    min_value: number | null;
-    max_value: number | null;
-  };
-  suppliers: {
-    name: string;
-  };
+  quality_parameters: QualityParameter;
+  suppliers: Supplier;
 }
 
 interface Filter {
