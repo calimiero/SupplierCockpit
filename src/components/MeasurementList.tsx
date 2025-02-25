@@ -114,7 +114,8 @@ export function MeasurementList() {
         });
       }
 
-      setMeasurements(filteredData);
+      // TypeScript'e tiplerin uyumlu olduğunu bildiriyoruz
+      setMeasurements(filteredData as unknown as Measurement[]);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {
